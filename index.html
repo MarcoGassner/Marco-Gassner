@@ -5,62 +5,65 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Marco Gaßner — Research & Projects</title>
   <meta name="description" content="Research, projects, and publications by Marco Gaßner." />
-  <meta name="color-scheme" content="light" />
+  <meta name="color-scheme" content="dark light" />
   <style>
-    /* ===== Theme ===== */
-    :root{
-      --bg: #F6FAFF;           /* light bluish background */
-      --fg: #0F172A;           /* slate‑900 */
-      --muted:#5B6B7A;         /* cool gray */
-      --accent:#0EA5FF;        /* modern azure */
-      --accent-2:#3B82F6;      /* blue for hover/gradients */
-      --name-grad: linear-gradient(135deg,#FFE44D 0%,#32D583 100%); /* lemon → green */
-      --card:#FFFFFF;
-      --border:#E6EEF8;
-      --shadow: 0 8px 28px rgba(15,23,42,.08);
+    :root {
+      --bg: #0B0F19;           /* dark navy */
+      --fg: #E6E8EB;           /* light text */
+      --muted: #9CA3AF;        /* muted gray */
+      --accent: #2563EB;       /* modern deep blue */
+      --accent-2: #3B82F6;     /* bright blue */
+      --name-grad: linear-gradient(135deg, #FACC15 0%, #4ADE80 100%); /* lemon → green */
+      --card: #111827;         /* dark card */
+      --border: #1F2937;       /* border gray */
+      --shadow: 0 8px 28px rgba(0,0,0,.4);
       --radius: 14px;
     }
 
-    /* ===== Base ===== */
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0; background:var(--bg); color:var(--fg);
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      line-height:1.65; letter-spacing:.2px;
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.65;
+      letter-spacing: .2px;
     }
-    .container{width:min(1024px,92%);margin:0 auto}
+    .container { width: min(1024px, 92%); margin: 0 auto; }
 
-    /* ===== Nav (minimal) ===== */
-    .nav{position:sticky; top:0; z-index:40; backdrop-filter:saturate(150%) blur(8px); background:color-mix(in oklab, var(--bg) 85%, transparent); border-bottom:1px solid var(--border)}
-    .nav .inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.9rem 0}
-    .brand{font-weight:700;letter-spacing:.3px}
-    .brand a{color:inherit;text-decoration:none}
-    .nav ul{display:flex;gap:.8rem;list-style:none;margin:0;padding:0}
-    .nav a{color:var(--muted);text-decoration:none;padding:.45rem .7rem;border-radius:10px}
-    .nav a:hover{color:var(--accent);background:color-mix(in oklab,var(--accent) 8%, transparent)}
+    .nav {
+      position: sticky; top: 0; z-index: 40;
+      backdrop-filter: saturate(150%) blur(8px);
+      background: rgba(11,15,25,0.85);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav .inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .9rem 0; }
+    .brand { font-weight: 700; letter-spacing: .3px; }
+    .brand a { color: inherit; text-decoration: none; }
+    .nav ul { display: flex; gap: .8rem; list-style: none; margin: 0; padding: 0; }
+    .nav a { color: var(--muted); text-decoration: none; padding: .45rem .7rem; border-radius: 10px; transition: all 0.2s ease; }
+    .nav a:hover { color: var(--accent-2); background: rgba(37,99,235,0.15); }
 
-    /* ===== Hero ===== */
-    .hero{padding:6rem 0 4rem}
-    .hero-wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:2rem;align-items:center}
-    .title{font-size:clamp(2rem,4vw,3.2rem);line-height:1.1;margin:0 0 1rem;background:var(--name-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-    .lead{font-size:clamp(1.05rem,1.5vw,1.2rem);color:var(--muted);margin:0}
-    .avatar{justify-self:center;max-width:200px;aspect-ratio:1;border-radius:50%;border:4px solid var(--accent);box-shadow:var(--shadow);object-fit:cover}
+    .hero { padding: 6rem 0 4rem; }
+    .hero-wrap { display: grid; grid-template-columns: 1.1fr .9fr; gap: 2rem; align-items: center; }
+    .title { font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.1; margin: 0 0 1rem; background: var(--name-grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .lead { font-size: clamp(1.05rem, 1.5vw, 1.2rem); color: var(--muted); margin: 0; }
+    .avatar { justify-self: center; max-width: 200px; aspect-ratio: 1; border-radius: 50%; border: 4px solid var(--accent); box-shadow: var(--shadow); object-fit: cover; }
 
-    /* ===== Sections ===== */
-    section{padding:3.5rem 0}
-    h2{font-size:clamp(1.4rem,2.4vw,1.9rem);margin:.2rem 0 1rem;color:var(--accent)}
-    .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.1rem 1.2rem;box-shadow:var(--shadow)}
+    section { padding: 3.5rem 0; }
+    h2 { font-size: clamp(1.4rem, 2.4vw, 1.9rem); margin: .2rem 0 1rem; color: var(--accent-2); }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.1rem 1.2rem; box-shadow: var(--shadow); }
 
-    /* ===== Footer ===== */
-    footer{border-top:1px solid var(--border);padding:2rem 0;color:var(--muted)}
+    footer { border-top: 1px solid var(--border); padding: 2rem 0; color: var(--muted); }
 
-    /* ===== Responsive ===== */
-    @media (max-width: 900px){.hero-wrap{grid-template-columns:1fr}.avatar{order:-1;margin-bottom:1rem}}
+    @media (max-width: 900px) {
+      .hero-wrap { grid-template-columns: 1fr; }
+      .avatar { order: -1; margin-bottom: 1rem; }
+    }
   </style>
 </head>
 <body>
-  <!-- ===== Navigation ===== -->
   <header class="nav" role="navigation" aria-label="Primary">
     <div class="container inner">
       <div class="brand"><a href="#home">Marco Gaßner</a></div>
@@ -75,18 +78,16 @@
     </div>
   </header>
 
-  <!-- ===== Hero ===== -->
   <main id="home" class="hero" role="main">
     <div class="container hero-wrap">
       <div>
         <h1 class="title">Marco Gaßner</h1>
-        <p class="lead">Bonjour, I am a research assistant and doctoral candidate at the University Hospital of the Technical University of Munich. My work focuses on researching and implementing digital mental health interventions for therapeutic purposes. I hold two master’s degrees: one in Philosophy (LMU Munich) and another in an interdisciplinary program combining Psychology and Educational Science (TUM).</p>
+        <p class="lead">Hello and thanks for stopping by. I am a research assistant and doctoral candidate at the University Hospital of the Technical University of Munich. My work focuses on researching and implementing digital mental health interventions for therapeutic purposes. I hold two master’s degrees: one in Philosophy (LMU Munich) and another in an interdisciplinary program combining Psychology and Educational Science (TUM).</p>
       </div>
       <img class="avatar" src="your-photo.jpg" alt="Portrait of Marco Gaßner" />
     </div>
   </main>
 
-  <!-- ===== About ===== -->
   <section id="about" aria-labelledby="about-title">
     <div class="container">
       <h2 id="about-title">About</h2>
@@ -96,28 +97,25 @@
     </div>
   </section>
 
-  <!-- ===== Projects ===== -->
   <section id="projects" aria-labelledby="projects-title">
     <div class="container">
       <h2 id="projects-title">Projects</h2>
       <div class="card">
         <h3 style="margin:.2rem 0 .6rem">TraumaCare Kids — Pilot RCT</h3>
-        <p></p>
+        <p>A randomized controlled trial of an app-based intervention for acute stress reactions in youth after traumatic events.</p>
       </div>
     </div>
   </section>
 
-  <!-- ===== Publications ===== -->
   <section id="publications" aria-labelledby="pubs-title">
     <div class="container">
       <h2 id="pubs-title">Publications</h2>
       <div class="card">
-        <p> <em></em>.</p>
+        <p>Doe, J. (2025). App-based interventions for trauma: A randomized trial. <em>Journal of Child & Adolescent Digital Health</em>.</p>
       </div>
     </div>
   </section>
 
-  <!-- ===== Footer ===== -->
   <footer role="contentinfo">
     <div class="container">
       <small>© <span id="year"></span> Marco Gaßner. All rights reserved.</small>
