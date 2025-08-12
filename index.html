@@ -4,204 +4,144 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Marco Gaßner — Home</title>
+  <meta name="description" content="Personal website of Marco Gaßner – research, projects, publications." />
   <style>
-    :root{--bg:#0F121A;--fg:#E0E2E4;--muted:#9BA0A8;--accent:#1E80FF;--border:#1F242C;--card:#121722;--radius:14px;}
+    :root{
+      --bg:#0F121A; --fg:#E0E2E4; --muted:#9BA0A8;
+      --accent:#1E80FF; --border:#1F242C; --card:#121722; --radius:14px;
+    }
     *{box-sizing:border-box}
-    body{margin:0;background:var(--bg);color:var(--fg);font-family:ui-sans-serif,system-ui,sans-serif;line-height:1.65}
+    html,body{height:100%}
+    body{
+      margin:0; background:var(--bg); color:var(--fg);
+      font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      line-height:1.65;
+    }
     .container{width:min(1000px,92%);margin:0 auto}
-    .nav{position:sticky;top:0;background:rgba(15,18,26,.85);border-bottom:1px solid var(--border);backdrop-filter:saturate(150%) blur(8px)}
+    /* Nav */
+    .nav{position:sticky;top:0;z-index:10;background:rgba(15,18,26,.85);
+      border-bottom:1px solid var(--border); backdrop-filter:saturate(150%) blur(8px)}
     .nav-inner{display:flex;justify-content:space-between;align-items:center;padding:.9rem 0}
     .brand{color:var(--fg);text-decoration:none;font-weight:700}
     .nav a{color:var(--muted);text-decoration:none;padding:.45rem .7rem;border-radius:10px}
     .nav a:hover{color:var(--accent);background:rgba(30,128,255,.12)}
     .nav a.active{color:var(--fg);background:rgba(30,128,255,.18)}
+    /* Views */
+    main{min-height:calc(100dvh - 120px)}
+    .view{display:none; padding:3.5rem 0}
+    .view.active{display:block}
+    /* Hero (Home) */
     .hero{padding:6rem 0 4rem}
     .hero-wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:2rem;align-items:center}
     .title{font-size:clamp(2rem,4vw,3rem);color:#FFD84D;margin:0 0 1rem}
-    .lead{color:var(--muted)}
+    .lead{color:var(--muted);margin:0}
     .avatar{max-width:200px;border-radius:50%;border:3px solid var(--accent);object-fit:cover}
+    /* Cards / sections */
+    .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1rem;margin-bottom:1rem}
+    .h1{font-size:clamp(1.6rem,2.6vw,2rem);margin:.2rem 0 1rem}
+    /* Footer */
     footer{border-top:1px solid var(--border);padding:2rem 0;color:var(--muted);text-align:center}
-    @media(max-width:900px){.hero-wrap{grid-template-columns:1fr}.avatar{order:-1;margin-bottom:1rem}}
+    /* Responsive */
+    @media (max-width:900px){.hero-wrap{grid-template-columns:1fr}.avatar{order:-1;margin-bottom:1rem}}
   </style>
 </head>
 <body>
-  <header class="nav">
+  <!-- NAV -->
+  <header class="nav" role="navigation" aria-label="Primary">
     <div class="container nav-inner">
-      <a class="brand" href="index.html">Marco Gaßner</a>
+      <a class="brand" href="#home">Marco Gaßner</a>
       <nav>
-        <a class="active" href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="projects.html">Projects</a>
-        <a href="publications.html">Publications</a>
+        <a href="#home"        id="link-home"        class="active">Home</a>
+        <a href="#about"       id="link-about">About</a>
+        <a href="#projects"    id="link-projects">Projects</a>
+        <a href="#publications"id="link-publications">Publications</a>
       </nav>
     </div>
   </header>
 
-  <main id="home" class="hero">
-    <div class="container hero-wrap">
-      <div>
-        <h1 class="title">Marco Gaßner</h1>
-        <p class="lead">
-          Research assistant and doctoral candidate at the University Hospital of the Technical University of Munich.
-          I research and implement evidence-based digital mental health interventions, with a focus on children and adolescents.
-        </p>
+  <!-- VIEWS -->
+  <main id="app">
+    <!-- HOME -->
+    <section id="home" class="view hero active" aria-labelledby="home-title">
+      <div class="container hero-wrap">
+        <div>
+          <h1 id="home-title" class="title">Marco Gaßner</h1>
+          <p class="lead">
+            Research assistant and doctoral candidate at the University Hospital of the Technical University of Munich.
+            I work on evidence-based digital mental health interventions for children and adolescents.
+          </p>
+        </div>
+        <img class="avatar"
+             src="https://baseresourcesstack-documentsbucket9ec9deb9-qmmkdw8bfxhu.s3.eu-central-1.amazonaws.com/public/videos/Bilder/Marco-aktuell.jpg"
+             alt="Portrait of Marco Gaßner" />
       </div>
-      <img class="avatar"
-           src="https://baseresourcesstack-documentsbucket9ec9deb9-qmmkdw8bfxhu.s3.eu-central-1.amazonaws.com/public/videos/Bilder/Marco-aktuell.jpg"
-           alt="Portrait of Marco Gaßner" />
-    </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="view" aria-labelledby="about-title">
+      <div class="container">
+        <h1 id="about-title" class="h1">About</h1>
+        <div class="card">
+          <p>My work focuses on researching and implementing digital mental health interventions for therapeutic purposes.</p>
+          <p>I hold two master’s degrees: one in Philosophy (LMU Munich) and one in an interdisciplinary program in Psychology and Educational Science (TUM).</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="view" aria-labelledby="projects-title">
+      <div class="container">
+        <h1 id="projects-title" class="h1">Projects</h1>
+        <article class="card">
+          <h2>TraumaCare Kids — Pilot RCT</h2>
+          <p>Randomized controlled trial of an app-based intervention for acute stress reactions in youth.</p>
+        </article>
+        <!-- Add more <article class="card">…</article> as needed -->
+      </div>
+    </section>
+
+    <!-- PUBLICATIONS -->
+    <section id="publications" class="view" aria-labelledby="pubs-title">
+      <div class="container">
+        <h1 id="pubs-title" class="h1">Publications</h1>
+        <!-- Add your items here as <article class="card">…</article> -->
+      </div>
+    </section>
   </main>
 
-  <footer>
-    <small>© <span id="year"></span> Marco Gaßner. All rights reserved.</small>
-  </footer>
-  <script>document.getElementById('year').textContent=new Date().getFullYear()</script>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Marco Gaßner — About</title>
-  <style>
-    :root{--bg:#0F121A;--fg:#E0E2E4;--muted:#9BA0A8;--accent:#1E80FF;--border:#1F242C;--card:#121722;--radius:14px;}
-    *{box-sizing:border-box}
-    body{margin:0;background:var(--bg);color:var(--fg);font-family:ui-sans-serif,system-ui,sans-serif;line-height:1.65}
-    .container{width:min(1000px,92%);margin:0 auto}
-    .nav{position:sticky;top:0;background:rgba(15,18,26,.85);border-bottom:1px solid var(--border);backdrop-filter:saturate(150%) blur(8px)}
-    .nav-inner{display:flex;justify-content:space-between;align-items:center;padding:.9rem 0}
-    .brand{color:var(--fg);text-decoration:none;font-weight:700}
-    .nav a{color:var(--muted);text-decoration:none;padding:.45rem .7rem;border-radius:10px}
-    .nav a:hover{color:var(--accent);background:rgba(30,128,255,.12)}
-    .nav a.active{color:var(--fg);background:rgba(30,128,255,.18)}
-    .section{padding:3.5rem 0}
-    .title{font-size:clamp(2rem,4vw,3rem);color:#FFD84D;margin:0 0 1rem}
-    .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1rem;margin-bottom:1rem}
-    footer{border-top:1px solid var(--border);padding:2rem 0;color:var(--muted);text-align:center}
-  </style>
-</head>
-<body>
-  <header class="nav">
-    <div class="container nav-inner">
-      <a class="brand" href="index.html">Marco Gaßner</a>
-      <nav>
-        <a href="index.html">Home</a>
-        <a class="active" href="about.html">About</a>
-        <a href="projects.html">Projects</a>
-        <a href="publications.html">Publications</a>
-      </nav>
-    </div>
-  </header>
-
-  <main class="section">
+  <!-- FOOTER -->
+  <footer role="contentinfo">
     <div class="container">
-      <h1 class="title">About</h1>
-      <div class="card">
-        <p>I am a research assistant and doctoral candidate at the University Hospital of the Technical University of Munich. My work focuses on researching and implementing digital mental health interventions for therapeutic purposes.</p>
-        <p>I hold two master’s degrees: one in Philosophy (LMU Munich) and one in an interdisciplinary program in Psychology and Educational Science (TUM).</p>
-      </div>
+      <small>© <span id="year"></span> Marco Gaßner. All rights reserved.</small>
     </div>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Marco Gaßner — Projects</title>
-  <style>
-    :root{--bg:#0F121A;--fg:#E0E2E4;--muted:#9BA0A8;--accent:#1E80FF;--border:#1F242C;--card:#121722;--radius:14px;}
-    *{box-sizing:border-box}
-    body{margin:0;background:var(--bg);color:var(--fg);font-family:ui-sans-serif,system-ui,sans-serif;line-height:1.65}
-    .container{width:min(1000px,92%);margin:0 auto}
-    .nav{position:sticky;top:0;background:rgba(15,18,26,.85);border-bottom:1px solid var(--border);backdrop-filter:saturate(150%) blur(8px)}
-    .nav-inner{display:flex;justify-content:space-between;align-items:center;padding:.9rem 0}
-    .brand{color:var(--fg);text-decoration:none;font-weight:700}
-    .nav a{color:var(--muted);text-decoration:none;padding:.45rem .7rem;border-radius:10px}
-    .nav a:hover{color:var(--accent);background:rgba(30,128,255,.12)}
-    .nav a.active{color:var(--fg);background:rgba(30,128,255,.18)}
-    .section{padding:3.5rem 0}
-    .title{font-size:clamp(2rem,4vw,3rem);color:#FFD84D;margin:0 0 1rem}
-    .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1rem;margin-bottom:1rem}
-    footer{border-top:1px solid var(--border);padding:2rem 0;color:var(--muted);text-align:center}
-  </style>
-</head>
-<body>
-  <header class="nav">
-    <div class="container nav-inner">
-      <a class="brand" href="index.html">Marco Gaßner</a>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a class="active" href="projects.html">Projects</a>
-        <a href="publications.html">Publications</a>
-      </nav>
-    </div>
-  </header>
-
-  <main class="section">
-    <div class="container">
-      <h1 class="title">Projects</h1>
-      <div class="card">
-        <h2></h2>
-        <p></p>
-      </div>
-    </div>
-  </main>
-
-  <footer>
-    <small>© <span id="year"></span> Marco Gaßner. All rights reserved.</small>
   </footer>
-  <script>document.getElementById('year').textContent=new Date().getFullYear()</script>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Marco Gaßner — Publications</title>
-  <style>
-    :root{--bg:#0F121A;--fg:#E0E2E4;--muted:#9BA0A8;--accent:#1E80FF;--border:#1F242C;--card:#121722;--radius:14px;}
-    *{box-sizing:border-box}
-    body{margin:0;background:var(--bg);color:var(--fg);font-family:ui-sans-serif,system-ui,sans-serif;line-height:1.65}
-    .container{width:min(1000px,92%);margin:0 auto}
-    .nav{position:sticky;top:0;background:rgba(15,18,26,.85);border-bottom:1px solid var(--border);backdrop-filter:saturate(150%) blur(8px)}
-    .nav-inner{display:flex;justify-content:space-between;align-items:center;padding:.9rem 0}
-    .brand{color:var(--fg);text-decoration:none;font-weight:700}
-    .nav a{color:var(--muted);text-decoration:none;padding:.45rem .7rem;border-radius:10px}
-    .nav a:hover{color:var(--accent);background:rgba(30,128,255,.12)}
-    .nav a.active{color:var(--fg);background:rgba(30,128,255,.18)}
-    .section{padding:3.5rem 0}
-    .title{font-size:clamp(2rem,4vw,3rem);color:#FFD84D;margin:0 0 1rem}
-    .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1rem;margin-bottom:1rem}
-    footer{border-top:1px solid var(--border);padding:2rem 0;color:var(--muted);text-align:center}
-  </style>
-</head>
-<body>
-  <header class="nav">
-    <div class="container nav-inner">
-      <a class="brand" href="index.html">Marco Gaßner</a>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="projects.html">Projects</a>
-        <a class="active" href="publications.html">Publications</a>
-      </nav>
-    </div>
-  </header>
 
-  <main class="section">
-    <div class="container">
-      <h1 class="title">Publications</h1>
-      <div class="card">
-        <p>Hahnefeld A, Fink M, Hauber E, Le Beherec S, Gassner M, Klosinski M, Mall V. Dysregulated Screen Exposure Is Associated With Severity of Language and Communication Impairments in Children With Developmental Disorders. Acta Paediatr. 2025 Jul 18. doi: 10.1111/apa.70223. Epub ahead of print. PMID: 40682221.</em>.</p>
-      </div>
-    </div>
-  </main>
+  <script>
+    // Simple hash router: show one view at a time (no scrolling between sections)
+    const views = ["home","about","projects","publications"];
+    const links = views.map(v => document.getElementById("link-" + v));
 
-  <footer>
-    <small>© <span id="year"></span> Marco Gaßner. All rights reserved.</small>
-  </footer>
-  <script>document.getElementById('year').textContent=new Date().getFullYear()</script>
+    function setActive(hash){
+      const id = (hash || "#home").replace("#","");
+      // toggle views
+      views.forEach(v=>{
+        const el = document.getElementById(v);
+        if (el) el.classList.toggle("active", v === id);
+      });
+      // toggle nav active
+      links.forEach(a => a?.classList.remove("active"));
+      const activeLink = document.getElementById("link-" + id);
+      activeLink?.classList.add("active");
+      // title
+      const base = "Marco Gaßner — ";
+      const titles = {home:"Home", about:"About", projects:"Projects", publications:"Publications"};
+      document.title = base + (titles[id] || "Home");
+      // scroll top
+      window.scrollTo({top:0, behavior:"instant"});
+    }
+    window.addEventListener("hashchange", () => setActive(location.hash));
+    setActive(location.hash);
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
