@@ -35,7 +35,16 @@
     .hero-wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:2rem;align-items:center}
     .title{font-size:clamp(2rem,4vw,3rem);color:#FFD84D;margin:0 0 1rem}
     .lead{color:var(--muted);margin:0}
-    .avatar{max-width:200px;border-radius:50%;border:3px solid var(--accent);object-fit:cover}
+.avatar{
+  width: 100%;
+  max-width: 800px;      /* groß – gern anpassen */
+  aspect-ratio: 16 / 9;  /* rechteckig (16:9) */
+  height: auto;          /* skaliert korrekt */
+  border-radius: 12px;   /* leicht abgerundet; nimm 0 für eckig */
+  border: 3px solid var(--accent);
+  object-fit: cover;     /* füllt den Rahmen schön aus */
+  display: block;
+}
     /* Cards / sections */
     .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1rem;margin-bottom:1rem}
     .h1{font-size:clamp(1.6rem,2.6vw,2rem);margin:.2rem 0 1rem}
@@ -93,8 +102,8 @@
       <div class="container">
         <h1 id="projects-title" class="h1">Projects</h1>
         <article class="card">
-          <h2>TraumaCare Kids — Pilot RCT</h2>
-          <p>Randomized controlled trial of an app-based intervention for acute stress reactions in youth.</p>
+          <h2>I`m working in the INCLUDE Rese</h2>
+          <p></p>
         </article>
         <!-- Add more <article class="card">…</article> as needed -->
       </div>
